@@ -17,8 +17,24 @@ function verifierNumerique() {
 	}
 }
 
+//alertPaste
+document.addEventListener("mousemove", PosAlertPaste);
+var customAlert = document.getElementById('AlertPaste');
+function PosAlertPaste(e) {
+	customAlert.style.left = e.clientX + 5 + 'px';
+	customAlert.style.top = e.clientY + 5 + 'px';
+}
+
+function ShowAlertPaste() {
+	customAlert.style.opacity = '75%';
+	setTimeout(function () {
+		customAlert.style.opacity = '0%';
+	}, 1000);
+}
+
+
 //ctrl+v automatique
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	navigator.permissions.query({ name: 'clipboard-read' }).then(permissionStatus => {
 		if (permissionStatus.state === 'granted') {
 			console.log('Accès au presse-papiers autorisé.');
@@ -29,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
-document.getElementById('textArea').addEventListener('focus', function() {
+document.getElementById('textArea').addEventListener('focus', function () {
 	// Coller le contenu du presse-papiers dans la zone de texte
 	navigator.clipboard.readText()
 		.then((clipboardText) => {
@@ -38,8 +54,9 @@ document.getElementById('textArea').addEventListener('focus', function() {
 		.catch((err) => {
 			console.error('Erreur lors de la lecture du presse-papiers : ', err);
 		});
+	ShowAlertPaste()
 });
-document.getElementById('textArea1').addEventListener('focus', function() {
+document.getElementById('textArea1').addEventListener('focus', function () {
 	// Coller le contenu du presse-papiers dans la zone de texte
 	navigator.clipboard.readText()
 		.then((clipboardText) => {
@@ -48,8 +65,9 @@ document.getElementById('textArea1').addEventListener('focus', function() {
 		.catch((err) => {
 			console.error('Erreur lors de la lecture du presse-papiers : ', err);
 		});
+	ShowAlertPaste()
 });
-document.getElementById('textArea2').addEventListener('focus', function() {
+document.getElementById('textArea2').addEventListener('focus', function () {
 	// Coller le contenu du presse-papiers dans la zone de texte
 	navigator.clipboard.readText()
 		.then((clipboardText) => {
@@ -58,9 +76,8 @@ document.getElementById('textArea2').addEventListener('focus', function() {
 		.catch((err) => {
 			console.error('Erreur lors de la lecture du presse-papiers : ', err);
 		});
+	ShowAlertPaste()
 });
-
-///////Convertions
 
 //InterpolationPos
 function PosStep() {
@@ -107,7 +124,6 @@ function RotaLinear() {
 	copierResultatPos()
 }
 
-
 //Copie dans press papier
 
 function copierResultatPos() {
@@ -132,6 +148,8 @@ function copierResultatPos() {
 		modal.style.display = "none";
 	}, 1500);
 }
+
+///////Convertions
 
 //Convertion Pos
 
