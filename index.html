@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)http://motion-designers-coordinates-converter.s3-website-eu-west-1.amazonaws.com/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Convertisseur AE - Cavalry</title>
+  <style>
+    .prevent-select {
+      -webkit-user-select: none;
+      /* Safari */
+      -ms-user-select: none;
+      /* IE 10 and IE 11 */
+      user-select: none;
+      /* Standard syntax */
+    }
+
+
+
+    .convert {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+
+    body {
+      background-color: rgb(34, 34, 34);
+      color: white;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 10px !important;
+    }
+
+    button {
+      margin: 10px !important;
+      background-color: #4ffd7a;
+      /* Green */
+      border: none;
+      color: black;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      width: 75px;
+    }
+
+    button:hover {
+      background-color: #b2ffc5;
+    }
+
+    textarea {
+      width: 80%;
+      height: 150px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      resize: vertical;
+    }
+
+    input {
+      width: 60px;
+      text-align: center;
+      margin: 10px 7.5px 0px 7.5px;
+    }
+
+    #alert {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(54, 54, 54);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    textarea {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="alert">
+    <p>Le resultat a ete copie</p>
+  </div>
+  <div class="convert">
+    <p class="prevent-select">Positions</p>
+    <textarea class="prevent-select" id="textArea" onfocus="clearContents(this);">Conversion Pos X - Y</textarea>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <form id="myForm">
+        <input type="text" id="w_comp" name="w_comp" value="Comp W" required onfocus="clearContents(this);">
+        <input type="text" id="h_comp" name="h_comp" value="Comp H" required onfocus="clearContents(this);">
+      </form>
+      <div>
+        <button class="prevent-select" onclick="PosStep()">Step</button>
+        <button class="prevent-select" onclick="PosLinear()">Linear</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="convert">
+    <p class="prevent-select">Scale</p>
+    <textarea class="prevent-select" id="textArea1" onfocus="clearContents(this);">Conversion Scale X - Y</textarea>
+    <div>
+      <button class="prevent-select" onclick="ScaleStep()">Step</button>
+      <button class="prevent-select" onclick="ScaleLinear()">Linear</button>
+    </div>
+  </div>
+
+  <div class="convert">
+    <p class="prevent-select">Rotation</p>
+    <textarea class="prevent-select" id="textArea2" onfocus="clearContents(this);">Conversion Rotation</textarea>
+    <div>
+      <button class="prevent-select" onclick="RotaStep()">Step</button>
+      <button class="prevent-select" onclick="RotaLinear()">Linear</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+
+
+</body>
+
+</html>
