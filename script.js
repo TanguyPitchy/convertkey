@@ -3,6 +3,20 @@ var resultat = 0;
 var w_comp = document.getElementById("w_comp").value;
 var h_comp = document.getElementById("h_comp").value;
 
+//troll
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      // L'onglet est devenu inactif (en arrière-plan)
+      document.title = 'Onglet inactif';
+      console.log('┌П┐(▀̿Ĺ̯▀̿)');
+    } else {
+      // L'onglet est devenu actif (en premier plan)
+      document.title = 'Onglet actif';
+      console.log('Convertisseur AE - Cavalry');
+    }
+  });
+
+
 
 //Clear text
 function clearContents(element) {
