@@ -7,12 +7,10 @@ var h_comp = document.getElementById("h_comp").value;
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
       // L'onglet est devenu inactif (en arrière-plan)
-      document.title = 'Onglet inactif';
-      console.log('┌П┐(▀̿Ĺ̯▀̿)');
+      document.title = '┌П┐(▀̿Ĺ̯▀̿)';
     } else {
       // L'onglet est devenu actif (en premier plan)
-      document.title = 'Onglet actif';
-      console.log('Convertisseur AE - Cavalry');
+      document.title = 'Convertisseur AE - Cavalry';
     }
   });
 
