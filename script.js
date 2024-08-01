@@ -179,27 +179,53 @@ function ConvertionPos() {
 
 	sortie += header;
 
-	for (var i = 10; tab[i].length > 6; i++) {
-		var val = tab[i].split('\t');
-		FRAME = val[1];
-		VALUE = (parseFloat(val[2]) - (w_comp / 2)).toFixed(3);
+    if( tab[8]=="Layer"){
+        for (var i = 11; tab[i].length > 6; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = (parseFloat(val[2]) - (w_comp / 2)).toFixed(3);
+    
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+        }
+    
+        sortie = sortie.substring(0, sortie.length - 1);
+        sortie += '],'
+        sortie += header_y;
+    
+        for (var i = 11; tab[i].length > 6; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = ((h_comp / 2) - parseFloat(val[3])).toFixed(3);
+    
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+        }
+    }else{
+        for (var i = 10; tab[i].length > 6; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = (parseFloat(val[2]) - (w_comp / 2)).toFixed(3);
+    
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+        }
+    
+        sortie = sortie.substring(0, sortie.length - 1);
+        sortie += '],'
+        sortie += header_y;
+    
+        for (var i = 10; tab[i].length > 6; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = ((h_comp / 2) - parseFloat(val[3])).toFixed(3);
+    
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+        }
+    }
 
-		sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
-		sortie += f;
-	}
 
-	sortie = sortie.substring(0, sortie.length - 1);
-	sortie += '],'
-	sortie += header_y;
-
-	for (var i = 10; tab[i].length > 6; i++) {
-		var val = tab[i].split('\t');
-		FRAME = val[1];
-		VALUE = ((h_comp / 2) - parseFloat(val[3])).toFixed(3);
-
-		sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
-		sortie += f;
-	}
 
 	sortie = sortie.substring(0, sortie.length - 1);
 	sortie += footer;
@@ -223,27 +249,53 @@ function ConvertionScale() {
 
 	sortie += header;
 
-	for (var i = 10; tab[i].length > 6; i++) {
-		var val = tab[i].split('\t');
-		FRAME = val[1];
-		VALUE = (parseFloat(val[2]) / 100).toFixed(3);
+    if( tab[8]=="Layer"){
+        for (var i = 11; tab[i].length > 6; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = (parseFloat(val[2]) / 100).toFixed(3);
+    
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+        }
+    
+        sortie = sortie.substring(0, sortie.length - 1);
+        sortie += '],'
+        sortie += header_y;
+    
+        for (var i = 11; tab[i].length > 6; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = (parseFloat(val[3]) / 100).toFixed(3);
+    
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+        }
+    }else{
+        for (var i = 10; tab[i].length > 6; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = (parseFloat(val[2]) / 100).toFixed(3);
+    
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+        }
+    
+        sortie = sortie.substring(0, sortie.length - 1);
+        sortie += '],'
+        sortie += header_y;
+    
+        for (var i = 10; tab[i].length > 6; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = (parseFloat(val[3]) / 100).toFixed(3);
+    
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+        }
+    }
 
-		sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
-		sortie += f;
-	}
-
-	sortie = sortie.substring(0, sortie.length - 1);
-	sortie += '],'
-	sortie += header_y;
-
-	for (var i = 10; tab[i].length > 6; i++) {
-		var val = tab[i].split('\t');
-		FRAME = val[1];
-		VALUE = (parseFloat(val[3]) / 100).toFixed(3);
-
-		sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
-		sortie += f;
-	}
+	
 
 	sortie = sortie.substring(0, sortie.length - 1);
 	sortie += footer;
@@ -266,20 +318,32 @@ function ConvertionRotation() {
 
 	sortie += header;
 
-	for (var i = 10; tab[i].length > 3; i++) {
-		var val = tab[i].split('\t');
-		FRAME = val[1];
-		VALUE = (parseFloat(val[2]) * -1).toFixed(3);
-		sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
-		sortie += f;
+    if( tab[8]=="Layer"){
+        for (var i = 11; tab[i].length > 3; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = (parseFloat(val[2]) * -1).toFixed(3);
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+    
+        }
+    }else{
+        for (var i = 10; tab[i].length > 3; i++) {
+            var val = tab[i].split('\t');
+            FRAME = val[1];
+            VALUE = (parseFloat(val[2]) * -1).toFixed(3);
+            sortie += '{"data": {"interpolation" : ' + valeur + ',"numValue":' + VALUE + '},"frame": ' + FRAME + '';
+            sortie += f;
+    
+        } 
+    }
 
-	}
+
 	sortie = sortie.substring(0, sortie.length - 1);
 	sortie += footer;
 
 	return sortie;
 
 }
-
 
 
